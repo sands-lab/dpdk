@@ -4,8 +4,9 @@
 #
 # toolchain:
 #
-#   - define CC, LD, AR, AS, ... (overridden by cmdline value)
+#   - define CC, CXX, LD, AR, AS, ... (overridden by cmdline value)
 #   - define TOOLCHAIN_CFLAGS variable (overridden by cmdline value)
+#   - define TOOLCHAIN_CXXFLAGS variable (overridden by cmdline value)
 #   - define TOOLCHAIN_LDFLAGS variable (overridden by cmdline value)
 #   - define TOOLCHAIN_ASFLAGS variable (overridden by cmdline value)
 #
@@ -14,6 +15,7 @@
 # x86->x86 compiler
 
 CC        = icc
+CXX       = icc
 KERNELCC  = gcc
 CPP       = cpp
 AS        = nasm
@@ -29,9 +31,11 @@ HOSTCC    = icc
 else
 HOSTCC    = gcc
 endif
+HOSTCXX   = icc
 HOSTAS    = as
 
 TOOLCHAIN_CFLAGS =
+TOOLCHAIN_CXXFLAGS =
 TOOLCHAIN_LDFLAGS =
 TOOLCHAIN_ASFLAGS =
 
@@ -62,5 +66,5 @@ TOOLCHAIN_CFLAGS += -flto -ffat-lto-objects
 TOOLCHAIN_LDFLAGS += -flto
 endif
 
-export CC AS AR LD OBJCOPY OBJDUMP STRIP READELF
-export TOOLCHAIN_CFLAGS TOOLCHAIN_LDFLAGS TOOLCHAIN_ASFLAGS
+export CC CXX AS AR LD OBJCOPY OBJDUMP STRIP READELF
+export TOOLCHAIN_CFLAGS TOOLCHAIN_CXXFLAGS TOOLCHAIN_LDFLAGS TOOLCHAIN_ASFLAGS

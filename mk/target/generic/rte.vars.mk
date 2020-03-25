@@ -124,7 +124,10 @@ ifeq ($(CONFIG_RTE_EXEC_ENV_FREEBSD),y)
 CFLAGS += -D__BSD_VISIBLE
 endif
 
+CXXFLAGS := $(CFLAGS)
+
 export CFLAGS
+export CXXFLAGS
 export LDFLAGS
 
 endif
